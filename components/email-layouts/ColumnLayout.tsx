@@ -1,6 +1,6 @@
 "use client";
 import { DragDropElementLayout, useEmailTemplate } from "@/app/email-editor/Provider";
-import { useState } from "react";
+import { useState, JSX } from "react";
 import ButtonElement from "./Elements/ButtonElement";
 import TextElement from "./Elements/TextElement";
 import ImageElement from "./Elements/ImgElement";
@@ -13,6 +13,7 @@ interface ColumnLayoutProps {
   layout: {
     numOfCol: number;
     id: number;
+    elements: DragElement[];
   };
 }
 
@@ -45,8 +46,8 @@ const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
   const onDropHandle = () => {
     if (!dragOver || !dragElementlayout?.dragElement) return;
     const index = dragOver.index;
-    setEmailTemplate((prevTemplate) =>
-      prevTemplate.map((col) =>
+    setEmailTemplate((prevTemplate:any) =>
+      prevTemplate.map((col:any) =>
         col.id === layout?.id
           ? { ...col, [index]: dragElementlayout.dragElement }
           : col
@@ -63,25 +64,26 @@ const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
   };
 
   // Function to get element type for display
-  const getElementComponent = (element: DragElement | undefined): TSX.Element | string => {
+  const getElementComponent = (element: DragElement | undefined): JSX.Element | string => {
     if (element?.type === "button") {
-      return <ButtonElement {...element} />;
+      return <ButtonElement content={element.content} url={element.url} {...element} />;
     }
     if (element?.type === "text") {
-      return <TextElement {...element} />;
+      return <TextElement content={element.content} {...element} />;
     }
     if (element?.type === "image") {
-     return <ImageElement {...element} />;
+     return <ImageElement imageUrl={element.imageUrl} {...element} />;
      }
      if (element?.type === "logo" ) {
-     return <LogoElement {...element} />;
+     return <LogoElement imageUrl={element.imageUrl} {...element} />;
      }
-     if(element?.type === "divider"){
-       return <DividerElement {...element} />;
-     }
+    if (element?.type === "divider") {
+      const { type, ...dividerProps } = element;
+      return <DividerElement {...dividerProps} />;
+    }
     
      if (element?.type === "icons " ) {
-     return <SocialElement {...element} />;
+     return <SocialElement socialLinks={element.socialLinks} {...element} />;
      }
     return "Not avalible";
   };
@@ -104,7 +106,7 @@ const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
           onDrop={onDropHandle}
           onDragLeave={onDragLeaveHandle}
         >
-          {layout?.[index] ? getElementComponent(layout?.[index] as DragElement) : "Drag and Drop here"}
+          {layout?.elements[index] ? getElementComponent(layout?.elements[index] as DragElement) : "Drag and Drop here"}
         </div>
       ))}
     </div>
