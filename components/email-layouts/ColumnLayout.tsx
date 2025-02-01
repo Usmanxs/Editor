@@ -1,6 +1,6 @@
 "use client";
 import { DragDropElementLayout, useEmailTemplate } from "@/app/email-editor/Provider";
-import { useState, JSX } from "react";
+import { useState ,JSX} from "react";
 import ButtonElement from "./Elements/ButtonElement";
 import TextElement from "./Elements/TextElement";
 import ImageElement from "./Elements/ImgElement";
@@ -13,7 +13,6 @@ interface ColumnLayoutProps {
   layout: {
     numOfCol: number;
     id: number;
-    elements: DragElement[];
   };
 }
 
@@ -77,10 +76,9 @@ const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
      if (element?.type === "logo" ) {
      return <LogoElement imageUrl={element.imageUrl} {...element} />;
      }
-    if (element?.type === "divider") {
-      const { type, ...dividerProps } = element;
-      return <DividerElement {...dividerProps} />;
-    }
+     if(element?.type === "divider"){
+       return <DividerElement />;
+     }
     
      if (element?.type === "icons " ) {
      return <SocialElement socialLinks={element.socialLinks} {...element} />;
@@ -106,7 +104,7 @@ const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
           onDrop={onDropHandle}
           onDragLeave={onDragLeaveHandle}
         >
-          {layout?.elements[index] ? getElementComponent(layout?.elements[index] as DragElement) : "Drag and Drop here"}
+          {layout?.[index] ? getElementComponent(layout?.[index] as DragElement) : "Drag and Drop here"}
         </div>
       ))}
     </div>
