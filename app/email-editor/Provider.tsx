@@ -3,6 +3,8 @@ import React, { useState ,useContext} from "react";
 import { ScreenSizeContext } from "../context/ScreenSizecContext";
 import { DragDropLayoutContext } from "../context/DragDroplayout";
 import { EmailTemplateContext } from "../context/EmailTemple";
+import { SelectedElementContext } from "../context/SlectedElement";
+
 interface ScreenSizeProviderProps {
   children: React.ReactNode ;
 }
@@ -11,13 +13,15 @@ function Provider({ children }: { children: React.ReactNode }) {
   const [screenSize, setScreenSize] = useState<string>("desktop");
   const [dragElementlayout, setDragElementLayout] = useState<any>(null);
   const [emailTemplate, setEmailTemplate] = useState([]);
-
+ const  [selectedElement, setSelectedElement] = useState<any>(null);
   return (
     <ScreenSizeContext.Provider value={{ screenSize, setScreenSize }}>
       <DragDropLayoutContext.Provider value={{ dragElementlayout, setDragElementLayout }}>
       <EmailTemplateContext.Provider value={{emailTemplate, setEmailTemplate}}>
+    <SelectedElementContext.Provider value={{selectedElement, setSelectedElement}}>
 
       {children}
+    </SelectedElementContext.Provider>
       </EmailTemplateContext.Provider>
       </DragDropLayoutContext.Provider>
     </ScreenSizeContext.Provider>
@@ -47,3 +51,10 @@ export const useEmailTemplate = () => {
   }
   return context;
 };
+export const useSelectedElement = () => {
+  const context = useContext(SelectedElementContext);
+  if (!context) {
+    throw new Error("useSelectedElement must be used within a Provider");
+  }
+  return context ;
+}

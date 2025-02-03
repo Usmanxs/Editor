@@ -24,7 +24,7 @@ export default [
         hoverStyle: {
             backgroundColor: "#0056b3",
         },
-        outerStyle: `flex items-center justify-center`,
+        outerStyle: `grid items-center justify-center`,
     },
     {
         icon: TextSearchIcon,
@@ -41,31 +41,32 @@ export default [
             lineHeight: "1.5",
             textAlign: "left",
         },
-        outerStyle: `flex items-start justify-start`,
+        outerStyle: `grid items-start justify-start`,
     },
     {
         icon: Image,
         label: "Image",
         type: "image",
         content: "Sample Image",
-        imageUrl: "/image.png",
+        imageUrl: "/uxs.jpg",
         alt: "Sample Image",
-        url: "#",
+        url: "/",
         style: {
-            width: "100%",
-            height: "auto",
+            width: "80px",
+            height: "80px",
             borderRadius: "8px",
             objectFit: "cover",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            boxShadow: "0 4px 8px rgba(27, 17, 17, 0.1)",
+            overflow: "hidden",
         },
-        outerStyle: `flex items-center justify-center`,
+        outerStyle: ` items-center justify-center`,
     },
     {
         icon: Frame,
         label: "Logo",
         type: "logo",
         content: "Company Logo",
-        imageUrl: "/logo.svg",
+        imageUrl: "/next.svg",
         alt: "Company Logo",
         url: "#",
         style: {
@@ -73,13 +74,13 @@ export default [
             height: "auto",
             objectFit: "contain",
         },
-        outerStyle: `flex items-center justify-left`,
+        outerStyle: ` items-center justify-left`,
     },
     
     {
-        icon: Twitter,
+        icon: Twitter ,
         label: "Social",
-        type: "social",
+        type: "icons",
         content: "Follow us on social media",
         socialLinks: [
             {
@@ -105,7 +106,7 @@ export default [
         
         ],
         style: {
-            display: "flex",
+            display: "grid",
             alignItems: "center",
             gap: "12px",
             padding: "10px 16px",
@@ -116,7 +117,7 @@ export default [
             transition: "background-color 0.3s ease",
             cursor: "pointer",
         },
-        outerStyle: `flex items-center justify-center`,
+        outerStyle: `grid items-center justify-center`,
     },
    
     {
@@ -125,7 +126,7 @@ export default [
         type: "divider",
         content: "Divider Line",
         style: {
-            borderTop: "2px solid #cccccc",
+            borderTop: "2px solid black", 
             width: "100%",
             margin: "16px 0",
             display: "block",

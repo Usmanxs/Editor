@@ -1,13 +1,16 @@
 "use client";
-import { DragDropElementLayout, useEmailTemplate } from "@/app/email-editor/Provider";
-import { useState ,JSX} from "react";
+import {
+  DragDropElementLayout,
+  useEmailTemplate,
+} from "@/app/email-editor/Provider";
+import { useState, JSX } from "react";
 import ButtonElement from "./Elements/ButtonElement";
 import TextElement from "./Elements/TextElement";
 import ImageElement from "./Elements/ImgElement";
 import SocialElement from "./Elements/SocialElement";
 import LogoElement from "./Elements/LogoElement";
 import DividerElement from "./Elements/DividerElement";
-
+import { useSelectedElement } from "@/app/email-editor/Provider";
 
 interface ColumnLayoutProps {
   layout: {
@@ -16,7 +19,6 @@ interface ColumnLayoutProps {
     [index: number]: DragElement | undefined; // Store elements directly
   };
 }
-
 
 interface DragOverState {
   index: number;
@@ -30,12 +32,19 @@ interface DragElement {
 
 const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
   const { emailTemplate, setEmailTemplate } = useEmailTemplate();
+
   const { dragElementlayout } = DragDropElementLayout();
-  
+  const { selectedElement, setSelectedElement } = useSelectedElement() as {
+    selectedElement: { layout: { id: number }; index: number } | null;
+    setSelectedElement: (element: { layout: { id: number }; index: number } | null) => void;
+  };
   const [dragOver, setDragOver] = useState<DragOverState | null>(null);
 
   // Handle drag over event
-  const onDragOverHandle = (event: React.DragEvent<HTMLDivElement>, index: number) => {
+  const onDragOverHandle = (
+    event: React.DragEvent<HTMLDivElement>,
+    index: number
+  ) => {
     event.preventDefault();
     setDragOver({
       index: index,
@@ -47,8 +56,8 @@ const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
   const onDropHandle = () => {
     if (!dragOver || !dragElementlayout?.dragElement) return;
     const index = dragOver.index;
-    setEmailTemplate((prevTemplate:any) =>
-      prevTemplate.map((col:any) =>
+    setEmailTemplate((prevTemplate: any) =>
+      prevTemplate.map((col: any) =>
         col.id === layout?.id
           ? { ...col, [index]: dragElementlayout.dragElement }
           : col
@@ -65,26 +74,34 @@ const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
   };
 
   // Function to get element type for display
-  const getElementComponent = (element: DragElement | undefined): JSX.Element | string => {
+  const getElementComponent = (
+    element: DragElement | undefined
+  ): JSX.Element | string => {
     if (element?.type === "button") {
-      return <ButtonElement content={element.content} url={element.url} {...element} />;
+      return (
+        <ButtonElement
+          content={element.content}
+          url={element.url}
+          {...element}
+        />
+      );
     }
     if (element?.type === "text") {
       return <TextElement content={element.content} {...element} />;
     }
     if (element?.type === "image") {
-     return <ImageElement imageUrl={element.imageUrl} {...element} />;
-     }
-     if (element?.type === "logo" ) {
-     return <LogoElement imageUrl={element.imageUrl} {...element} />;
-     }
-     if(element?.type === "divider"){
-       return <DividerElement />;
-     }
-    
-     if (element?.type === "icons " ) {
-     return <SocialElement socialLinks={element.socialLinks} {...element} />;
-     }
+      return <ImageElement imageUrl={element.imageUrl} {...element} />;
+    }
+    if (element?.type === "logo") {
+      return <LogoElement imageUrl={element.imageUrl} {...element} />;
+    }
+    if (element?.type === "divider") {
+      return <DividerElement />;
+    }
+
+    if (element?.type === "icons ") {
+      return <SocialElement socialLinks={element.socialLinks} {...element} />;
+    }
     return "Not avalible";
   };
 
@@ -99,14 +116,22 @@ const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
       {Array.from({ length: layout.numOfCol }, (_, index) => (
         <div
           key={index}
-          className={`w-full h-20 border border-dashed flex justify-center text-black items-center ${
-            index === dragOver?.index && dragOver?.columnId === layout.id ? "bg-green-300" : ""
-          }`}
+          className={`w-full h-20 ${
+            !layout?.[index] && "bg-slate-200 border border-dotted"
+          } bg-white grid  justify-center  items-center ${
+            index === dragOver?.index && dragOver?.columnId === layout.id
+              ? "bg-blue-500 "
+              : ""
+          }
+          ${ (selectedElement?.layout.id === layout.id && selectedElement?.index === index)&&"border border-blue-700"}    `}
           onDragOver={(e) => onDragOverHandle(e, index)}
           onDrop={onDropHandle}
           onDragLeave={onDragLeaveHandle}
+          onClick={() => setSelectedElement({ layout: layout, index: index })}
         >
-          {layout?.[index] ? getElementComponent(layout?.[index] as any) : "Drag and Drop here"}
+          {layout?.[index]
+            ? getElementComponent(layout?.[index] as any)
+            : "Drag and Drop here"}
         </div>
       ))}
     </div>
