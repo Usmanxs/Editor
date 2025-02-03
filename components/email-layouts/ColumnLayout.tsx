@@ -13,8 +13,10 @@ interface ColumnLayoutProps {
   layout: {
     numOfCol: number;
     id: number;
+    [index: number]: DragElement | undefined; // Store elements directly
   };
 }
+
 
 interface DragOverState {
   index: number;
@@ -104,7 +106,7 @@ const ColumnLayout: React.FC<ColumnLayoutProps> = ({ layout }) => {
           onDrop={onDropHandle}
           onDragLeave={onDragLeaveHandle}
         >
-          {layout?.[index] ? getElementComponent(layout?.[index] as DragElement) : "Drag and Drop here"}
+          {layout?.[index] ? getElementComponent(layout?.[index] as any) : "Drag and Drop here"}
         </div>
       ))}
     </div>
