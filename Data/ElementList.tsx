@@ -7,7 +7,7 @@ export default [
         label: "Button",
         type: "button",
         content: "Click Me",
-        url: "#",
+        url: "https://www.example.com",
         style: {
             backgroundColor: "#007BFF",
             color: "#FFFFFF",
