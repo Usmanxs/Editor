@@ -1,6 +1,15 @@
 import { createContext } from "react";
-interface SelectedElementContextType {
-  selectedElement: HTMLElement | null;
-  setSelectedElement: (element: HTMLElement | null) => void;
+
+interface SelectedElementType {
+  layout: {
+    id: number;
+  };
+  index: number;
 }
-export const SelectedElementContext = createContext<SelectedElementContextType| null  >(null) ;
+
+interface SelectedElementContextType {
+  selectedElement: SelectedElementType | null;
+  setSelectedElement: (element: SelectedElementType | null) => void;
+}
+
+export const SelectedElementContext = createContext<SelectedElementContextType | null>(null);

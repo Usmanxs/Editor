@@ -20,7 +20,9 @@ const ElementSetting = () => {
         }
 
         // Find the selected element in emailTemplate
-        const foundElement = emailTemplate.find((item: any) => item.id === selectedElement.layout?.id);
+        const foundElement = emailTemplate.find(
+            (el: { id: number }) => el.id === selectedElement.layout?.id
+        );
 
         if (foundElement) {
             setSettings(foundElement[selectedElement.index] || {});

@@ -1,0 +1,96 @@
+[
+  {
+    "0": {
+      "icon": {},
+      "label": "Text",
+      "type": "text",
+      "content": "this is not jus",
+      "style": {
+        "backgroundColor": "#171717",
+        "color": "#ff0000",
+        "width": "100%",
+        "padding": "8px",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "1.5",
+        "textAlign": "center"
+      },
+      "outerStyle": "grid items-start justify-start",
+      "id": 1739768530355
+    },
+    "1": {
+      "icon": {},
+      "label": "Image",
+      "type": "image",
+      "content": "Sample Image",
+      "imageUrl": "/uxs.jpg",
+      "alt": "Sample Image",
+      "url": "/",
+      "style": {
+        "width": "80px",
+        "height": "80px",
+        "borderRadius": "8px",
+        "objectFit": "cover",
+        "boxShadow": "0 4px 8px rgba(27, 17, 17, 0.1)",
+        "overflow": "hidden"
+      },
+      "outerStyle": " items-center justify-center",
+      "id": 1739768943127
+    },
+    "label": "Column 2",
+    "type": "column",
+    "numOfCol": 2,
+    "icon": {},
+    "id": 1739768529232
+  },
+  {
+    "0": {
+      "icon": {},
+      "label": "Text",
+      "type": "text",
+      "content": "myyy Text",
+      "style": {
+        "backgroundColor": "transparent",
+        "color": "#333333",
+        "width": "100%",
+        "padding": "8px",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "1.5",
+        "textAlign": "left"
+      },
+      "outerStyle": "grid items-start justify-start",
+      "id": 1739768923087
+    },
+    "1": {
+      "icon": {},
+      "label": "Button",
+      "type": "button",
+      "content": "Click Me",
+      "url": "https://www.example.com",
+      "style": {
+        "backgroundColor": "#007BFF",
+        "color": "#FFFFFF",
+        "width": "auto",
+        "padding": "12px 24px",
+        "borderRadius": "8px",
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "textAlign": "center",
+        "border": "none",
+        "cursor": "pointer",
+        "transition": "background-color 0.3s ease"
+      },
+      "hoverStyle": {
+        "backgroundColor": "#0056b3"
+      },
+      "outerStyle": "grid items-center justify-center",
+      "id": 1739768924567
+    },
+    "label": "Column 2",
+    "type": "column",
+    "numOfCol": 2,
+    "icon": {},
+    "id": 1739768921324
+  }
+]

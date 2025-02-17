@@ -1,0 +1,57 @@
+[
+  {
+    "0": {
+      "icon": {},
+      "label": "Logo",
+      "type": "logo",
+      "content": "Company Logo",
+      "imageUrl": "/next.svg",
+      "alt": "Company Logo",
+      "url": "#",
+      "style": {
+        "width": "80px",
+        "height": "auto",
+        "objectFit": "contain"
+      },
+      "outerStyle": " items-center justify-left",
+      "id": 1739768310785
+    },
+    "1": {
+      "icon": {},
+      "label": "Button",
+      "type": "button",
+      "content": "Click Me",
+      "url": "https://www.example.com",
+      "style": {
+        "backgroundColor": "#007BFF",
+        "color": "#FFFFFF",
+        "width": "auto",
+        "padding": "12px 24px",
+        "borderRadius": "8px",
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "textAlign": "center",
+        "border": "none",
+        "cursor": "pointer",
+        "transition": "background-color 0.3s ease"
+      },
+      "hoverStyle": {
+        "backgroundColor": "#0056b3"
+      },
+      "outerStyle": "grid items-center justify-center",
+      "id": 1739768309153
+    },
+    "label": "Column 2",
+    "type": "column",
+    "numOfCol": 2,
+    "icon": {},
+    "id": 1739768306802
+  },
+  {
+    "label": "Column 4",
+    "type": "column",
+    "numOfCol": 4,
+    "icon": {},
+    "id": 1739768315863
+  }
+]

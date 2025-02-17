@@ -1,0 +1,133 @@
+[
+  {
+    "0": {
+      "icon": {},
+      "label": "Button",
+      "type": "button",
+      "content": "Click Me",
+      "url": "https://www.example.com",
+      "style": {
+        "backgroundColor": "#007BFF",
+        "color": "#FFFFFF",
+        "width": "auto",
+        "padding": "12px 24px",
+        "borderRadius": "8px",
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "textAlign": "center",
+        "border": "none",
+        "cursor": "pointer",
+        "transition": "background-color 0.3s ease"
+      },
+      "hoverStyle": {
+        "backgroundColor": "#0056b3"
+      },
+      "outerStyle": "grid items-center justify-center",
+      "id": 1739770178874
+    },
+    "1": {
+      "icon": {},
+      "label": "Text",
+      "type": "text",
+      "content": "Sample Text",
+      "style": {
+        "backgroundColor": "transparent",
+        "color": "#333333",
+        "width": "100%",
+        "padding": "8px",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "1.5",
+        "textAlign": "left"
+      },
+      "outerStyle": "grid items-start justify-start",
+      "id": 1739770180061
+    },
+    "label": "Column 2",
+    "type": "column",
+    "numOfCol": 2,
+    "icon": {},
+    "id": 1739770177510
+  },
+  {
+    "0": {
+      "icon": {},
+      "label": "Button",
+      "type": "button",
+      "content": "hello ",
+      "url": "https://www.example.com",
+      "style": {
+        "backgroundColor": "#007BFF",
+        "color": "#FFFFFF",
+        "width": "auto",
+        "padding": "12px 24px",
+        "borderRadius": "8px",
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "textAlign": "center",
+        "border": "none",
+        "cursor": "pointer",
+        "transition": "background-color 0.3s ease"
+      },
+      "hoverStyle": {
+        "backgroundColor": "#0056b3"
+      },
+      "outerStyle": "grid items-center justify-center",
+      "id": 1739770183986
+    },
+    "1": {
+      "icon": {},
+      "label": "Image",
+      "type": "image",
+      "content": "Sample Image",
+      "imageUrl": "/uxs.jpg",
+      "alt": "Sample Image",
+      "url": "/",
+      "style": {
+        "width": "80px",
+        "height": "80px",
+        "borderRadius": "8px",
+        "objectFit": "cover",
+        "boxShadow": "0 4px 8px rgba(27, 17, 17, 0.1)",
+        "overflow": "hidden"
+      },
+      "outerStyle": " items-center justify-center",
+      "id": 1739770186266
+    },
+    "2": {
+      "icon": {},
+      "label": "Logo",
+      "type": "logo",
+      "content": "Company Logo",
+      "imageUrl": "/next.svg",
+      "alt": "Company Logo",
+      "url": "#",
+      "style": {
+        "width": "80px",
+        "height": "auto",
+        "objectFit": "contain"
+      },
+      "outerStyle": " items-center justify-left",
+      "id": 1739770188210
+    },
+    "3": {
+      "icon": {},
+      "label": "Divider",
+      "type": "divider",
+      "content": "Divider Line",
+      "style": {
+        "borderTop": "2px solid black",
+        "width": "100%",
+        "margin": "16px 0",
+        "display": "block"
+      },
+      "outerStyle": "text-center",
+      "id": 1739770191898
+    },
+    "label": "Column 4",
+    "type": "column",
+    "numOfCol": 4,
+    "icon": {},
+    "id": 1739770181910
+  }
+]
