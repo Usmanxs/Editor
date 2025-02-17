@@ -1,4 +1,4 @@
-import { GlobalWorkerOptions } from 'pdfjs-dist/legacy/build/pdf';
+import { GlobalWorkerOptions } from 'pdfjs-dist';
 
 if (typeof window !== 'undefined') {
   // Use a dynamic import for the worker
@@ -6,4 +6,4 @@ if (typeof window !== 'undefined') {
 }
 
 // Export the initialized pdfjs
-export { getDocument } from 'pdfjs-dist/legacy/build/pdf';
+export { getDocument } from 'pdfjs-dist';
